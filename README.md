@@ -55,5 +55,22 @@ Esse comando rodará o script para startar a aplicação.
     - ```price```: Preço do produto
     - ```store```: Loja do produto, pode haver ou não.
     - ```state```: Estado do produto, caso haja. 
- 
+    
+- ```/imdb/top_rated_movies``` (GET)
+
+  Recebe a lista dos 250 filmes mais bem avaliados no IMDb.
+
+  É possível usar query URL para ordenar os dados da maneira desejada, caso no não envie o a ordenação padro será pelo ranking.
+  
+  Para ordenar da forma desejada faça a requisiço GET da seguinte forma:
+  
+  ```/imdb/top_rated_movies?sorted_by=ORDENAÇÃO```
+  
+  Onde os valores possíveis para ```ORDENAÇÃO``` são:
+    - ```rk```: Ordena pelo Ranking
+    - ```ir```: Rating no IMDb
+    - ```us```: Data de lançamento
+    - ```nv```: Número de avaliações
+
+
   
