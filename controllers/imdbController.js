@@ -3,7 +3,14 @@ const cheerio = require('cheerio')
 const imdbURL = "https://www.imdb.com/"
 
 const topRatedMovies = async (req, res) => {
-    const urlTopRatedMovies = `${imdbURL}/chart/top/`
+    const sortedBy = req.query.sorted_by
+    let urlTopRatedMovies
+
+    if(sortedBy != undefined){   
+        urlTopRatedMovies = `${imdbURL}/chart/top/?sort=${sortedBy}`
+    }else{
+        urlTopRatedMovies = `${imdbURL}/chart/top/`
+    }
 
     let html = await utils.getHTML(urlTopRatedMovies)
     const $ = cheerio.load(html)
