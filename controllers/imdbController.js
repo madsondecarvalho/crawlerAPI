@@ -9,7 +9,7 @@ const topRatedMovies = async (req, res) => {
     if(sortedBy != undefined){   
         urlTopRatedMovies = `${imdbURL}/chart/top/?sort=${sortedBy}`
     }else{
-        urlTopRatedMovies = `${imdbURL}/chart/top/`
+        urlTopRatedMovies = `${imdbURL}/chart/top/?sort=rk`
     }
 
     let html = await utils.getHTML(urlTopRatedMovies)
