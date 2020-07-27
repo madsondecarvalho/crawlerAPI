@@ -1,27 +1,14 @@
 
 const cheerio = require('cheerio');
-const axios = require('axios');
+const utils = require('../utils/utils')
 const urlMercadoLivre = "https://lista.mercadolivre.com.br/"
- 
-//função de apoio para pegar o html como string
-const getHTML = async function (url){
-    try {
-        const { data } = await axios.get(url);
-        return data;
-      } catch {
-        console.error(
-          `ERROR: An error occurred while trying to fetch the URL: ${url}`
-        );
-      }
-}
-
 
 const search = async (req, res) => {
 
     const {search, limit} = req.body
     const urlPesquisa = `${urlMercadoLivre}${search}#D[A:${search}]`
     
-    let html = await getHTML(urlPesquisa)
+    let html = await utils.getHTML(urlPesquisa)
     const $ = cheerio.load(html)
 
     let result = [] //array que será enviado na resposta

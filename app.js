@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var mercadoLivre = require('./routes/mercadoLivre');
+var imdb = require('./routes/imdb');
+
 
 var app = express();
 
@@ -23,6 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/mercado_livre', mercadoLivre);
+app.use('/imdb', imdb);
+
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
